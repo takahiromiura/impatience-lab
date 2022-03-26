@@ -32,9 +32,9 @@ jobs:
         run: npm install honkit --save-dev
         
       - name: build honkit
-        run: npx honkit build
+        run: npm run build
         
       - name: deploy github pages
         uses: crazy-max/ghaction-github-pages@v2.6.0
         with:
-          build_dir: book_
+          build_dir: _book
