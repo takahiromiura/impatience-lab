@@ -24,7 +24,9 @@ jobs:
     steps:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.0.0
-      - run: npm install
+        
+      - name: setup honkit
+        run: npm install honkit --save-dev
         
       - name: build honkit
         run: npx honkit build
