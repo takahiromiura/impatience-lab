@@ -1,0 +1,25 @@
+{
+  "name": "impatience-lab",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takahiromiura/impatience-lab.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/takahiromiura/impatience-lab/issues"
+  },
+  "homepage": "https://github.com/takahiromiura/impatience-lab#readme",
+  "devDependencies": {
+    "honkit": "^3.7.1"
+  }
+}
