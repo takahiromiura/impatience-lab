@@ -2,4 +2,6 @@
 
 * [Introduction](README.md)
 
-* [Python](python/README.md)
+* Python
+  * [Pythonとは？](python/README.md)
+  * [Tutorial](python/Tutorial.md)
