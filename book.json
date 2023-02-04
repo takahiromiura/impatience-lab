@@ -1,6 +1,12 @@
 {
-    "root": "./docs",
-    "title": "Impatiece Lab",
-    "author": "Takahiro Miura",
-    "language": "ja"
+  "root": "./docs",
+  "title": "Impatiece Lab",
+  "author": "Takahiro Miura",
+  "language": "ja",
+  "plugins": ["flexible-alerts", "katex"],
+  "pluginsConfig": {
+    "flexible-alerts": {
+      "style": "callout"
+    }
+  }
 }

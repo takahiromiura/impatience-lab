@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/takahiromiura/impatience-lab#readme",
   "devDependencies": {
-    "honkit": "^3.7.1"
+    "gitbook-plugin-flexible-alerts": "^1.0.4",
+    "honkit": "^4.0.4",
+    "honkit-plugin-katex": "^1.1.7"
   }
 }
