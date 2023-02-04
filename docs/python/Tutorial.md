@@ -446,6 +446,7 @@ python3 bmi_func.py
 BMI を入力すると、肥満度カテゴリーを出力する関数を作成します。
 
 関数は `def` 構文を使用します。
+関数で行うソースコードは、`if ~ else` の時とどうよう、インデントしたブロック内に記載します。
 
 ```python
 def func_name(arg_name):
