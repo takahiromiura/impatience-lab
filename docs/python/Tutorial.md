@@ -178,8 +178,8 @@ NameError: name 'EXAMPLE' is not defined
 ```python
 >>> "this is an example"
 'this is an example'
->>> 'this is an another example'
-'this is an another example'
+>>> 'this is another example'
+'this is another example'
 ```
 
 ## ブール値
