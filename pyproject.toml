@@ -6,6 +6,7 @@ authors = ["takahiro miura <takamiura12@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4.0"
+pandas = "^1.5.3"
 
 [tool.poetry.dev-dependencies]
 black = "^23.1.0"
