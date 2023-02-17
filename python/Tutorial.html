@@ -1,0 +1,916 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Tutorial · Impatiece Lab</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 4.0.4">
+        <meta name="author" content="Takahiro Miura">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/honkit-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="MaternalAge.html" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索ワードを入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Python
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Pythonとは？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2.2" data-path="Tutorial.html">
+            
+                <a href="Tutorial.html">
+            
+                    
+                    Tutorial
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="MaternalAge.html">
+            
+                <a href="MaternalAge.html">
+            
+                    
+                    政府統計データ分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            HonKitで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Tutorial</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="python-チュートリアル-bmi・肥満度を計算しよう">Python チュートリアル: BMI・肥満度を計算しよう</h1>
+<p>Python をインストールして、初めて起動した時、どのような気持ちになりましたか？
+私は混乱でした。
+操作方法が分からなければ宝の持ち腐れですね。
+他にも通じますが、何か目標があると学習が捗ります。
+ここでは、簡単な練習問題を通して、Python の基本的な操作について学んでいきます。</p>
+<p>まずは、BMI (Body Mass Index) の計算プログラムを作ってみましょう。
+体重 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mi>g</mi></mrow><annotation encoding="application/x-tex">kg</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span></span></span></span>、身長 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">m</span></span></span></span> に対し、BMI は次のように定義されます。</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mtext>BMI</mtext><mo>=</mo><mi>k</mi><mi>g</mi><mi mathvariant="normal">/</mi><msup><mi>m</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+\textrm{BMI} = kg / m^2
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord text"><span class="mord textrm">BMI</span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord">/</span><span class="mord"><span class="mord mathnormal">m</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>日本肥満学会の出している<a href="http://www.jasso.or.jp/data/magazine/pdf/medicareguide2022_2.pdf" target="_blank">ガイドライン</a>によると、肥満度は BMI によって次のように分類されます。</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable rowspacing="0.2500em" columnalign="right left right" columnspacing="0em 1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>Underweight</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow/><mo>:</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mi>B</mi><mi>M</mi><mi>I</mi><mo>&lt;</mo><mn>18.5</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>Normal</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow/><mo>:</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mn>18.5</mn><mo>≤</mo><mi>B</mi><mi>M</mi><mi>I</mi><mo>&lt;</mo><mn>25</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="true"><mtext>Overweight</mtext></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mrow/><mo>:</mo></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="true"><mrow><mn>25</mn><mo>≤</mo><mi>B</mi><mi>M</mi><mi>I</mi></mrow></mstyle></mtd></mtr></mtable><annotation encoding="application/x-tex">
+\begin{aligned}
+\textrm{Underweight}&amp;:&amp; BMI &lt; 18.5 \\
+\textrm{Normal} &amp;:&amp; 18.5 \le BMI &lt; 25 \\
+\textrm{Overweight} &amp;:&amp; 25 \le BMI
+\end{aligned}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:4.500000000000002em;vertical-align:-2.000000000000001em;"></span><span class="mord"><span class="mtable"><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord textrm">Underweight</span></span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord textrm">Normal</span></span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord text"><span class="mord textrm">Overweight</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-r"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.5000000000000004em;"><span style="top:-4.66em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">BM</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">18.5</span></span></span><span style="top:-3.16em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">18.5</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">BM</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">25</span></span></span><span style="top:-1.6599999999999993em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">25</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">BM</span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:2.000000000000001em;"><span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>体重・身長が与えられた場合に BMI と肥満度カテゴリーを返すプログラムを作成してみます。</p>
+<h2 id="スクリプトの作成・実行">スクリプトの作成・実行</h2>
+<p>最初にスクリプトを作成します。
+Python スクリプトの拡張子は <code>.py</code> です。
+ここでは <code>bmi.py</code> というファイル名とします。
+まだ何も書いてないスクリプトですが、スクリプトを実行してみましょう。
+コマンドプロンプト（あるいはターミナル）で、作成ファイルがあるフォルダに移動して、以下のコマンドを実行します。</p>
+<pre><code class="lang-bash">python3 bmi.py
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+使用環境によって、<code>python3</code> を <code>python</code> に変えてください。
+コマンドの実行は Python が立ち上がっていない状態で行うことに注意してください。</p>
+</blockquote>
+<p>このコマンドで、<code>bmi.py</code> に書かれているソースコードが Python によって実行されました。
+もちろん、何も書いてないので何も起こりませんが、スクリプトを実行するという操作ができました。</p>
+<p>では、機能を実装していきましょう。</p>
+<p>コードを書いていく前に、何をすればよいか考えておくことをお勧めします。
+この場合は、例えば</p>
+<ul>
+<li>BMI を計算する</li>
+<li>BMI から肥満度に分類する</li>
+</ul>
+<p>TODO リストをコードに書いてみましょう。
+Python ではコメントは前に <code>#</code> と記載します。
+<code>#</code> の後に記載された行のコードはプログラム実行時に無視されます。
+<code>bmi.py</code> に以下を追記します。</p>
+<pre><code class="lang-python"><span class="hljs-comment"># BMI を計算する</span>
+<span class="hljs-comment"># BMI から肥満度に分類する</span>
+</code></pre>
+<h2 id="四則演算">四則演算</h2>
+<p>私の身長・体重を元に BMI を計算してみましょう。</p>
+<ul>
+<li>身長: 1.76 (m)</li>
+<li>体重: 68 (kg)</li>
+</ul>
+<p>基本的な Python の演算子は以下の通りです。</p>
+<ul>
+<li><code>+</code>: 加算</li>
+<li><code>-</code>: 減算</li>
+<li><code>*</code>: 乗算</li>
+<li><code>/</code>: 除算<ul>
+<li><code>//</code> は整数を返します</li>
+</ul>
+</li>
+<li><code>**</code>: 累乗</li>
+<li><code>%</code>: 剰余(mod)</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">3</span> + <span class="hljs-number">5</span>
+<span class="hljs-number">8</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">10</span> - <span class="hljs-number">5</span> * <span class="hljs-number">2</span>
+<span class="hljs-number">0</span>
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+<code>&gt;&gt;&gt;</code> という表記は、Python コンソール上でコマンドを実行したことを表しています。
+コマンドをコピーする場合は、<code>&gt;&gt;&gt;</code> や <code>...</code> を消して実行してください。</p>
+</blockquote>
+<p><code>()</code> でくくると、先に計算されます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>(<span class="hljs-number">10</span> - <span class="hljs-number">5</span>) * <span class="hljs-number">2</span>
+<span class="hljs-number">10</span>
+</code></pre>
+<p>では、BMI を計算してみましょう。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">68</span> / <span class="hljs-number">1.76</span> ** <span class="hljs-number">2</span>
+<span class="hljs-number">21.952479338842977</span>
+</code></pre>
+<h2 id="標準出力">標準出力</h2>
+<p>上記のコードを <code>bmi.py</code> に記載します。</p>
+<pre><code class="lang-python"><span class="hljs-comment"># BMI を計算する</span>
+<span class="hljs-number">68</span> / <span class="hljs-number">1.76</span> ** <span class="hljs-number">2</span>
+
+<span class="hljs-comment"># BMI から肥満度に分類する</span>
+</code></pre>
+<p>スクリプトを実行してみましょう。</p>
+<pre><code class="lang-bash">python3 bmi.py
+</code></pre>
+<p>何も出力されません。
+コマンドプロンプトに結果を出力するには、<code>print</code> 関数を用います。</p>
+<pre><code class="lang-python"><span class="hljs-comment"># BMI を計算する</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-number">68</span> / <span class="hljs-number">1.76</span> ** <span class="hljs-number">2</span>)
+
+<span class="hljs-comment"># BMI から肥満度に分類する</span>
+</code></pre>
+<p>実行すると、結果がコマンドプロンプトに出力されます。</p>
+<pre><code class="lang-bash">python3 bmi.py
+21.952479338842977
+</code></pre>
+<h2 id="変数">変数</h2>
+<p>他でも使えるように結果を保存したいです。
+次のように変数に値を代入します。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>BMI = <span class="hljs-number">68</span> / <span class="hljs-number">1.76</span> ** <span class="hljs-number">2</span>
+</code></pre>
+<p>変数名をタイプすれば、中身を呼び出すことができます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>BMI
+<span class="hljs-number">21.952479338842977</span>
+</code></pre>
+<blockquote>
+<p>[!NOTE]
+変数は値を格納する「箱」と表現されることが多いですが、付箋のような「ラベル」と考えた方が良いです。
+この違いについては、後に説明します。</p>
+</blockquote>
+<p>BMI の計算ができたので、BMI の値によって肥満度を返すロジックを組み込みたいです。
+例えば、先の例では BMI は 21 なので、肥満度 Normal を返すようなロジックです。
+つまり、数値に応じて文字列を返すことを行います。</p>
+<h2 id="文字列">文字列</h2>
+<p>Python で文字列をそのままタイプするとエラーが起きます（変数名として利用していない場合）。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>EXAMPLE
+Traceback (most recent call last):
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+NameError: name <span class="hljs-string">&apos;EXAMPLE&apos;</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> defined
+</code></pre>
+<p>変数ではなく文字列を使用するには、<code>&quot;</code> か <code>&apos;</code> で文字列を囲みます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&quot;this is an example&quot;</span>
+<span class="hljs-string">&apos;this is an example&apos;</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&apos;this is another example&apos;</span>
+<span class="hljs-string">&apos;this is another example&apos;</span>
+</code></pre>
+<h2 id="ブール値">ブール値</h2>
+<p>Python では真偽値を <code>True</code>, <code>False</code> で表します。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-literal">True</span>
+<span class="hljs-literal">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-literal">False</span>
+<span class="hljs-literal">False</span>
+</code></pre>
+<p>比較演算子はこの真偽値を返します。
+基本的な比較演算子は以下のものがあります。</p>
+<ul>
+<li><code>x == y</code>: <code>x</code> は <code>y</code> と等しい</li>
+<li><code>x != y</code>: <code>x</code> は <code>y</code> と等しくない</li>
+<li><code>x &gt; y</code>: <code>x</code> は <code>y</code> より大きい</li>
+<li><code>x &gt;= y</code>: <code>x</code> は <code>y</code> より大きいか等しい</li>
+<li><code>x &lt; y</code>: <code>x</code> は <code>y</code> より小さい</li>
+<li><code>x &lt;= y</code>: <code>x</code> は <code>y</code> より小さいか等しい</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">3</span> == <span class="hljs-number">4</span>
+<span class="hljs-literal">False</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">5</span> &gt; <span class="hljs-number">2</span>
+<span class="hljs-literal">True</span>
+</code></pre>
+<p>文字列では大文字・小文字は区別されます。
+<code>&gt;</code> などの大小関係は順番によって決まります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&apos;abc&apos;</span> == <span class="hljs-string">&apos;abc&apos;</span>
+<span class="hljs-literal">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&apos;a&apos;</span> &lt; <span class="hljs-string">&apos;b&apos;</span>
+<span class="hljs-literal">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">&apos;abc&apos;</span> == <span class="hljs-string">&apos;ABC&apos;</span>
+<span class="hljs-literal">False</span>
+</code></pre>
+<p>数値と文字列など、異なるものの大小は比較できません。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">3</span> == <span class="hljs-string">&apos;abc&apos;</span>
+<span class="hljs-literal">False</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">3</span> &gt; <span class="hljs-string">&apos;abc&apos;</span>
+Traceback (most recent call last):
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+TypeError: <span class="hljs-string">&apos;&gt;&apos;</span> <span class="hljs-keyword">not</span> supported between instances of <span class="hljs-string">&apos;int&apos;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&apos;str&apos;</span>
+</code></pre>
+<h2 id="型">型</h2>
+<p><code>1</code> や <code>2</code> という整数や <code>1.56</code> といった小数、<code>&quot;japan&quot;</code> のような文字列の分類を「型」といいます。
+<code>1</code> や <code>2</code> は整数型 (<code>int</code>)、<code>1.56</code> は小数点型 (<code>float</code>) 、<code>&quot;japan&quot;</code> は文字列型 (<code>str</code>) です。
+型のチェックは <code>type</code> 関数を用いることで判別できます。</p>
+<pre><code class="lang-python">&gt;&gt;&gt; type(1)
+&lt;class &apos;int&apos;&gt;
+&gt;&gt;&gt; type(1.56)
+&lt;class &apos;float&apos;&gt;
+&gt;&gt;&gt; type(&quot;japan&quot;)
+&lt;class &apos;str&apos;&gt;
+</code></pre>
+<h3 id="none">None</h3>
+<p>数値型 (<code>int, float</code> など) や文字列型とは異なり、<code>None</code> という特殊な型が存在します。
+<code>None</code> を呼び出しても何も返ってきません。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-literal">None</span>
+</code></pre>
+<p><code>None</code> かどうかを確かめたい場合は、<code>==</code> ではなく <code>is</code> を使うことが推奨されています。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>K = <span class="hljs-number">10</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>K <span class="hljs-keyword">is</span> <span class="hljs-literal">None</span>
+<span class="hljs-literal">False</span>
+</code></pre>
+<p><code>None</code> でないことを確かめる場合は <code>is not</code> を使います。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>K <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">None</span>
+<span class="hljs-literal">True</span>
+</code></pre>
+<p>関数などにおいて、度々 <code>None</code> に出くわすため、覚えておいてください。</p>
+<h2 id="条件分岐">条件分岐</h2>
+<p>条件分岐は <code>if ~ else</code> で行います。
+Python は他のプログラミング言語と異なり、インデントに意味があり、使える場面が限られます。
+例えば、<code>3</code> はエラーになりませんが、その前に空白があるとエラーになります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">3</span>
+<span class="hljs-number">3</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>    <span class="hljs-number">3</span>
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>
+    <span class="hljs-number">3</span>
+    ^
+IndentationError: unexpected indent
+</code></pre>
+<p>インデントは <code>if ~ else</code> などの場面で用います。
+例えば、次のコードは、<code>&lt;condition&gt;</code> が真ならば <code>operation 1</code> が実行されます。
+偽の場合は <code>operation 2</code> が実行されます。
+<code>if &lt;condition&gt;</code>, <code>else</code> の後に <code>:</code> を使うことに注意してください。</p>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> &lt;condition&gt;:
+    operation <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">else</span>:
+    operation <span class="hljs-number">2</span>
+</code></pre>
+<p>下のコードの場合、<code>A</code> は 2 より大きいので <code>1</code> が出力されます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>A = <span class="hljs-number">3</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> A &gt; <span class="hljs-number">2</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">else</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-number">2</span>)
+<span class="hljs-meta">... </span>
+<span class="hljs-number">1</span>
+</code></pre>
+<p><code>if</code> 条件が真だった場合、それ以外の場合 (<code>else</code>) に実行するコードはインデントで区切ります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>B = <span class="hljs-number">10</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> B &lt; <span class="hljs-number">2</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">else</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-number">2</span>)
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-number">3</span>)
+<span class="hljs-meta">... </span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+</code></pre>
+<p><code>else</code> は省略可能です。
+その場合、条件式が真でない場合は無視されます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> <span class="hljs-number">3</span> &lt; <span class="hljs-number">2</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-number">1</span>)
+...
+</code></pre>
+<p>条件分岐を増やす場合は、<code>elif</code> を使います。
+例えば、<code>C &gt; 10</code> かどうかを判定した後、<code>C &lt; 0</code> なら別のコードを実行したい場合は次のようになります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>C = -<span class="hljs-number">5</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> C &gt; <span class="hljs-number">10</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;C &gt; 10&quot;</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">elif</span> C &lt; <span class="hljs-number">0</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;C &lt; 0&quot;</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">else</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;0 &lt;= C &lt;= 10&quot;</span>)
+...
+C &lt; <span class="hljs-number">10</span>
+</code></pre>
+<p>注意点として、条件分岐は上から評価され、条件が初めに真になったところで条件分岐は終了します。
+細かい条件を最初に書かないと、意図しない挙動になります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>D = <span class="hljs-number">15</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> D &gt; <span class="hljs-number">5</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;D &gt; 5&quot;</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">elif</span> D &gt; <span class="hljs-number">10</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;D &gt; 10&quot;</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">else</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;D &lt;= 5&quot;</span>)
+...
+D &gt; <span class="hljs-number">5</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>D = <span class="hljs-number">15</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> D &gt; <span class="hljs-number">10</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;D &gt; 10&quot;</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">elif</span> D &gt; <span class="hljs-number">5</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;D &gt; 5&quot;</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">else</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;D &lt;= 5&quot;</span>)
+...
+D &gt; <span class="hljs-number">10</span>
+</code></pre>
+<p>では、BMI に基づいて肥満度カテゴリーを出力するロジックを実装します。
+<code>bmi.py</code> に以下のコードを追記します。</p>
+<pre><code class="lang-python"><span class="hljs-comment"># BMI を計算する</span>
+BMI = <span class="hljs-number">68</span> / <span class="hljs-number">1.76</span> ** <span class="hljs-number">2</span>
+<span class="hljs-built_in">print</span>(BMI)
+
+<span class="hljs-comment"># BMI から肥満度に分類する</span>
+<span class="hljs-keyword">if</span> BMI &gt; <span class="hljs-number">25</span>:
+    CATEGORY = <span class="hljs-string">&quot;Overweight&quot;</span>
+
+<span class="hljs-keyword">elif</span> BMI &lt; <span class="hljs-number">18.5</span>:
+    CATEGORY = <span class="hljs-string">&quot;Underweight&quot;</span>
+
+<span class="hljs-keyword">else</span>:
+    CATEGORY = <span class="hljs-string">&quot;Normal&quot;</span>
+
+<span class="hljs-built_in">print</span>(CATEGORY)
+</code></pre>
+<p>実行すると、次の結果を得られます。</p>
+<pre><code class="lang-bash">python3 bmi.py
+21.952479338842977
+Normal
+</code></pre>
+<h2 id="関数">関数</h2>
+<p>次に、以下の 3 パターンの BMI に対して肥満度カテゴリーを出力してみましょう。
+新しいファイル（<code>bmi_func.py</code> とします）を作成します。</p>
+<ol>
+<li>A さん: BMI = 30.5</li>
+<li>B さん: BMI = 16.7</li>
+<li>C さん: BMI = 23.4</li>
+</ol>
+<pre><code class="lang-python"><span class="hljs-comment"># BMI</span>
+BMI_A = <span class="hljs-number">30.5</span>
+BMI_B = <span class="hljs-number">16.7</span>
+BMI_C = <span class="hljs-number">23.4</span>
+
+<span class="hljs-comment"># 結果出力</span>
+<span class="hljs-built_in">print</span>(BMI_A)
+<span class="hljs-built_in">print</span>(BMI_B)
+<span class="hljs-built_in">print</span>(BMI_C)
+</code></pre>
+<p>実行すると以下を得ます。</p>
+<pre><code class="lang-bash">python3 bmi_func.py
+30.5
+16.7
+23.4
+</code></pre>
+<p>各 BMI の肥満度カテゴリーを出力するために、同じロジックを実装するのは面倒です。
+関数を作成することによって、使い回しすることができます。
+BMI を入力すると、肥満度カテゴリーを出力する関数を作成します。</p>
+<p>関数は <code>def</code> 構文を使用します。
+関数で行うソースコードは、<code>if ~ else</code> の時と同様、インデントしたブロック内に記載します。</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func_name</span>(<span class="hljs-params">arg_name</span>):</span>
+    <span class="hljs-keyword">return</span> value
+</code></pre>
+<p><code>func_name</code> は関数名、<code>arg_name</code> は引数名です。
+<code>return</code> によって関数から値を出力します。</p>
+<p><code>arg_name</code> は省略可能です。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_one</span>():</span>
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;print 1&quot;</span>)
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+...
+</code></pre>
+<p><code>print</code> は関数内で実行されてもコマンドプロンプトに出力されます。
+上で定義した関数は次のように実行します。
+<code>()</code> をつけないと、関数を呼び出すだけになることに注意してください。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>get_one()
+<span class="hljs-built_in">print</span> <span class="hljs-number">1</span>
+<span class="hljs-number">1</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>get_one
+&lt;function get_one at <span class="hljs-number">0x7fe6f01de700</span>&gt;
+</code></pre>
+<p><code>arg_name</code> を定義した場合、<code>()</code> に入れた値は <code>arg_name</code> という変数に代入されます。
+以下の例では、<code>3</code> が <code>x</code> に代入されていることがわかります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add_two</span>(<span class="hljs-params">x</span>):</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> x + <span class="hljs-number">2</span>
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>add_two(<span class="hljs-number">3</span>)
+<span class="hljs-number">5</span>
+</code></pre>
+<p>引数の数は複数にすることができます。
+引数名は <code>,</code> で区切ります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum_values</span>(<span class="hljs-params">x, y</span>):</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> x + y
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>sum_values(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>)
+<span class="hljs-number">8</span>
+</code></pre>
+<p>引数の入力の仕方は 2 種類あります。
+値を入力しただけの場合、左から順番に値が代入されます (positional argument)。
+先の関数を少し変更します。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum_values</span>(<span class="hljs-params">x, y</span>):</span>
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;x:&quot;</span>, x)
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;y:&quot;</span>, y)
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> x + y
+...
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>sum_values(<span class="hljs-number">3</span>, <span class="hljs-number">5</span>)
+x: <span class="hljs-number">3</span>
+y: <span class="hljs-number">5</span>
+<span class="hljs-number">8</span>
+</code></pre>
+<p>引数名を指定すると、対応する引数名に値が代入されます (keyword argument)。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>sum_values(y = <span class="hljs-number">3</span>, x = <span class="hljs-number">5</span>)
+x: <span class="hljs-number">5</span>
+y: <span class="hljs-number">3</span>
+<span class="hljs-number">8</span>
+</code></pre>
+<p>positional argument は keyword argument の前にする必要があります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>sum_values(x = <span class="hljs-number">3</span>, <span class="hljs-number">5</span>)
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>
+SyntaxError: positional argument follows keyword argument
+</code></pre>
+<p>そのため、次もエラーになります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>sum_values(<span class="hljs-number">5</span>, x = <span class="hljs-number">3</span>)
+Traceback (most recent call last):
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+TypeError: sum_values() got multiple values <span class="hljs-keyword">for</span> argument <span class="hljs-string">&apos;x&apos;</span>
+</code></pre>
+<p>これは、positional argument によって <code>x = 5</code> が代入されているにも関わらず、さらに <code>x = 3</code> を代入しているからです。</p>
+<blockquote>
+<p>[!NOTE] 
+関数内で <code>return</code> を定義していない場合、<code>None</code> が出力されます。</p>
+</blockquote>
+<p><code>return</code> が実行されると、その後のコードは無視されます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">check_return</span>():</span>
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;above&quot;</span>)
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;return&quot;</span>
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;below&quot;</span>)
+...
+check_return()
+above
+<span class="hljs-string">&apos;return&apos;</span>
+</code></pre>
+<h3 id="ローカル変数">ローカル変数</h3>
+<p>関数内で定義した変数は関数内でしか参照できません。
+関数外で定義した変数は関数内でも参照できます。
+こういった、変数の参照可能な範囲をスコープといいます。
+また、関数内で定義した変数をローカル変数、関数外で定義した変数をグローバル変数といいます。
+以下の例では、<code>K</code> という変数を関数内外で定義していますが、関数を実行しても関数外の変数には影響していません。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">define_K</span>(<span class="hljs-params">c</span>):</span>
+<span class="hljs-meta">... </span>    K = c + <span class="hljs-number">5</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> K
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>K = <span class="hljs-number">10</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>K
+<span class="hljs-number">10</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>define_K(<span class="hljs-number">3</span>)
+<span class="hljs-number">8</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>K
+<span class="hljs-number">10</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">call_global</span>():</span>
+<span class="hljs-meta">... </span>    <span class="hljs-built_in">print</span>(K)
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>K = <span class="hljs-number">5</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>call_global()
+<span class="hljs-number">5</span>
+</code></pre>
+<p>一見ややこしく感じるかもしれませんが、これはとても役立ちます。
+変数や関数を多く定義した場合、このような仕組みがないと、変数内の値が意図せず上書きされてしまう恐れがあります。
+したがって、どの関数内でも変数名が被らないように覚えておく必要があります。
+この仕組みによって、そのような心配をせずに関数の影響を最小限に留めておけるわけです。</p>
+<blockquote>
+<p>[!TIP]
+一応、グローバル変数は関数内で呼び出すことができますが、おすすめしません。
+グローバル変数が変わった場合にどこが変化するかを追いきれなくなる可能性があるためです。</p>
+</blockquote>
+<p>さて、<code>bmi_func.py</code> にカテゴリーを出力する関数を定義して、結果を出力しましょう。</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">classify_BMI</span>(<span class="hljs-params">bmi</span>):</span>
+    <span class="hljs-keyword">if</span> bmi &gt; <span class="hljs-number">25</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Overweight&quot;</span>
+
+    <span class="hljs-keyword">elif</span> bmi &lt; <span class="hljs-number">18.5</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Underweight&quot;</span>
+
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Normal&quot;</span>
+
+<span class="hljs-comment"># 結果出力</span>
+<span class="hljs-built_in">print</span>(BMI_A, classify_BMI(BMI_A))
+<span class="hljs-built_in">print</span>(BMI_B, classify_BMI(BMI_B))
+<span class="hljs-built_in">print</span>(BMI_C, classify_BMI(BMI_C))
+</code></pre>
+<p><code>print</code> 関数は <code>,</code> で区切るとまとめて出力できます。</p>
+<blockquote>
+<p>[!TIP]
+関数の名前は、<code>func1</code> などといった意味のないものではなく、分かりやすい名前にしましょう。</p>
+</blockquote>
+<p>実行すると以下を得られます。</p>
+<pre><code class="lang-bash">python3 bmi_func.py
+30.5 Overweight
+16.7 Underweight
+23.4 Normal
+</code></pre>
+<p>ついでに、身長・体重が与えられた場合に、BMI を計算する関数も定義しましょう。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">calc_BMI</span>(<span class="hljs-params">height, weight</span>):</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> weight / height ** <span class="hljs-number">2</span>
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>calc_BMI(<span class="hljs-number">1.78</span>, <span class="hljs-number">68</span>)
+<span class="hljs-number">21.461936624163616</span>
+</code></pre>
+<p><code>bmi_func.py</code> にも追記してください。</p>
+<h2 id="辞書型">辞書型</h2>
+<p>A、B、C さんの身長・体重はそれぞれ以下の通りです。</p>
+<ol>
+<li>A さん: BMI = 30.5<ul>
+<li>身長 = 1.64 m</li>
+<li>体重 = 82 kg</li>
+</ul>
+</li>
+<li>B さん: BMI = 16.7<ul>
+<li>身長 = 1.83 m</li>
+<li>体重 = 56 kg</li>
+</ul>
+</li>
+<li>C さん: BMI = 23.4<ul>
+<li>身長 = 1.60 m</li>
+<li>体重 = 60 kg</li>
+</ul>
+</li>
+</ol>
+<p>A さんの身長・体重を分けて変数として定義することもできますが、まとめた方がすっきりしそうです。
+辞書型 (<code>dict</code>) というものは、このような用途に使えます。
+Python では <code>{}</code> によって辞書型を定義します。
+辞書型では、<code>key</code> と <code>value</code> をセットで登録する必要があります。
+<code>key</code> は呼び出し用の名前で、<code>value</code> はその値です。
+<code>{key: value}</code> で定義します。
+<code>key</code> には数値型や文字列型などが使用できます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>{<span class="hljs-string">&quot;apple&quot;</span>: <span class="hljs-number">1</span>}
+{<span class="hljs-string">&apos;apple&apos;</span>: <span class="hljs-number">1</span>}
+</code></pre>
+<p>複数の <code>key-value</code> をセットするときは、<code>,</code> で区切ります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>{<span class="hljs-string">&quot;apple&quot;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&quot;lemon&quot;</span>: <span class="hljs-number">2</span>}
+{<span class="hljs-string">&apos;apple&apos;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&apos;lemon&apos;</span>: <span class="hljs-number">2</span>}
+</code></pre>
+<p><code>key</code> の値は一意である必要があることに注意してください。
+後に定義されたものに上書きされます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>{<span class="hljs-string">&quot;apple&quot;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&quot;apple&quot;</span>: <span class="hljs-number">2</span>}
+{<span class="hljs-string">&apos;apple&apos;</span>: <span class="hljs-number">2</span>}
+</code></pre>
+<p>定義した辞書型から値を呼び出すのは <code>dict_name[key]</code> で行えます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>fruits = {<span class="hljs-string">&quot;apple&quot;</span>: <span class="hljs-number">1</span>}
+<span class="hljs-meta">&gt;&gt;&gt; </span>fruits
+{<span class="hljs-string">&apos;apple&apos;</span>: <span class="hljs-number">1</span>}
+<span class="hljs-meta">&gt;&gt;&gt; </span>fruits[<span class="hljs-string">&quot;apple&quot;</span>]
+<span class="hljs-number">1</span>
+</code></pre>
+<p>登録されていない <code>key</code> を与えるとエラーになります。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>fruits[<span class="hljs-string">&quot;melon&quot;</span>]
+Traceback (most recent call last):
+  File <span class="hljs-string">&quot;&lt;stdin&gt;&quot;</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+KeyError: <span class="hljs-string">&apos;melon&apos;</span>
+</code></pre>
+<p><code>dict_name[key] = value</code> で新たに <code>key-value</code> を登録できます。
+<code>key</code> がすでに存在している場合は上書きされます。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>fruits[<span class="hljs-string">&quot;melon&quot;</span>] = <span class="hljs-number">3</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>fruits
+{<span class="hljs-string">&apos;apple&apos;</span>: <span class="hljs-number">1</span>, <span class="hljs-string">&apos;melon&apos;</span>: <span class="hljs-number">3</span>}
+<span class="hljs-meta">&gt;&gt;&gt; </span>fruits[<span class="hljs-string">&quot;apple&quot;</span>] = <span class="hljs-number">2</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>fruits
+{<span class="hljs-string">&apos;apple&apos;</span>: <span class="hljs-number">2</span>, <span class="hljs-string">&apos;melon&apos;</span>: <span class="hljs-number">3</span>}
+</code></pre>
+<p>A さん、B さん、C さんの身長・体重を辞書型を使って <code>bmi_func.py</code> 内に定義してみましょう。</p>
+<pre><code class="lang-python"><span class="hljs-comment"># 身長・体重</span>
+A = {<span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">1.64</span>, <span class="hljs-string">&quot;weight&quot;</span>: <span class="hljs-number">82</span>}
+B = {<span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">1.83</span>, <span class="hljs-string">&quot;weight&quot;</span>: <span class="hljs-number">56</span>}
+C = {<span class="hljs-string">&quot;height&quot;</span>: <span class="hljs-number">1.60</span>, <span class="hljs-string">&quot;weight&quot;</span>: <span class="hljs-number">60</span>}
+</code></pre>
+<p>以前定義した BMI の値を身長・体重から計算して置き換えましょう。</p>
+<pre><code class="lang-python"><span class="hljs-comment"># BMI</span>
+BMI_A = calc_BMI(A[<span class="hljs-string">&quot;height&quot;</span>], A[<span class="hljs-string">&quot;weight&quot;</span>])
+BMI_B = calc_BMI(B[<span class="hljs-string">&quot;height&quot;</span>], B[<span class="hljs-string">&quot;weight&quot;</span>])
+BMI_C = calc_BMI(C[<span class="hljs-string">&quot;height&quot;</span>], C[<span class="hljs-string">&quot;weight&quot;</span>])
+</code></pre>
+<p>実行すると以下を得ます。</p>
+<pre><code class="lang-bash">python3 bmi_func.py
+30.487804878048784 Overweight
+16.72190868643435 Underweight
+23.437499999999996 Normal
+</code></pre>
+<p>BMI の小数点が細かすぎるので、<code>round</code> 関数によって値を丸めます。
+<code>round(value, precision)</code> とすると、<code>value</code> は小数点 <code>precision</code> 桁で丸められます。
+<code>print</code> 関数部分を変更します。</p>
+<pre><code class="lang-python"><span class="hljs-comment"># 結果出力</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(BMI_A, <span class="hljs-number">2</span>), classify_BMI(BMI_A))
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(BMI_B, <span class="hljs-number">2</span>), classify_BMI(BMI_B))
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">round</span>(BMI_C, <span class="hljs-number">2</span>), classify_BMI(BMI_C))
+</code></pre>
+<p>実行結果は以下の通りです。</p>
+<pre><code class="lang-bash">python3 bmi_func.py
+30.49 Overweight
+16.72 Underweight
+23.44 Normal
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Pythonとは？">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="MaternalAge.html" class="navigation navigation-next " aria-label="Next page: 政府統計データ分析">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Tutorial","level":"1.2.2","depth":2,"next":{"title":"政府統計データ分析","level":"1.2.3","depth":2,"path":"python/MaternalAge.md","ref":"python/MaternalAge.md","articles":[]},"previous":{"title":"Pythonとは？","level":"1.2.1","depth":2,"path":"python/README.md","ref":"python/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["flexible-alerts","katex"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"flexible-alerts":{"style":"callout","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Takahiro Miura","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Impatiece Lab","language":"ja","gitbook":"*"},"file":{"path":"python/Tutorial.md","mtime":"2023-02-17T03:18:43.465Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-17T03:18:50.275Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

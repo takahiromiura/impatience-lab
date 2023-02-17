@@ -1,0 +1,428 @@
+
+<!DOCTYPE HTML>
+<html lang="ja" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Pythonとは？ · Impatiece Lab</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="HonKit 4.0.4">
+        <meta name="author" content="Takahiro Miura">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-flexible-alerts/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/honkit-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/@honkit/honkit-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Tutorial.html" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book honkit-cloak">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="検索ワードを入力" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    Python
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Pythonとは？
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="Tutorial.html">
+            
+                <a href="Tutorial.html">
+            
+                    
+                    Tutorial
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="MaternalAge.html">
+            
+                <a href="MaternalAge.html">
+            
+                    
+                    政府統計データ分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://github.com/honkit/honkit" target="blank" class="gitbook-link">
+            HonKitで公開 
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Pythonとは？</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="python-事始め">Python 事始め</h1>
+<h2 id="pythonとは？">Pythonとは？</h2>
+<p>すでに Python という言葉はどこかで聞いたことがあると思います。
+Python は C や Fortran といったプログラミング言語の１つです。
+Python は ABC という学習用プログラムからヒントを得て開発されました。
+Python はプログラミング言語の中でも学習が容易で、またコーディングの容易さ、可読性にも優れています。
+そうした理由から、Python は大学の授業でも多く使われています。</p>
+<blockquote>
+<p>ちなみに、Python のシンボルは、ニシキヘビですが、これが名前の由来ではありません。
+イギリスのコメディ番組「空飛ぶモンティ・パイソン」が由来です。
+プログラミングの書籍などを多く出版している O&apos;Reilly の書籍の表紙には動物が描かれていることがほとんどですが、 そこで Python の書籍を出す際、ニシキヘビをシンボルにしたそうです。</p>
+</blockquote>
+<h2 id="python-と-r">Python と R</h2>
+<p>エコノメトリクスでよく用いられるプログラミング言語としては、R が有名かと思います。
+R は技術計算用の言語で、S というプログラミング言語をもとに作られました。
+R と Python のどちらを使うかはよく議論の対象になっています。
+私見では、データ分析に関していうと、Python と R のどちらを使ってもよいと思います。
+というのも、Python で開発された便利な機能は誰かが R で使えるようにしており、またその逆も多くあるため、これら２つは互いに良い影響を与え合っています。</p>
+<p>ただし、Python と R で違いを挙げるとすれば、次のようになります。</p>
+<ul>
+<li><p>Python の開発は <strong>機械学習</strong> 、特に Deep Learning、方面に秀でています。
+例えば、機械学習・Deep Learning 用のパッケージとして、<a href="https://www.tensorflow.org/" target="_blank">Tensorflow</a>, <a href="https://chainer.org/" target="_blank">Chariner</a> などがあります。
+最新の Deep Learning パッケージは、まず Python のパッケージとして出されることが多いです。</p>
+</li>
+<li><p>R の開発は <strong>統計学</strong> 方面に秀でています。
+最先端の論文で提唱されている統計手法の多くは R で開発されています。</p>
+</li>
+</ul>
+<h2 id="python-のインストール">Python のインストール</h2>
+<p>データ分析用に Python を使う場合、<a href="https://www.anaconda.com/download/" target="_blank">Anaconda</a> の Python ディストリビューションからインストールするとよいでしょう。
+Python でデータ分析をする場合は、様々なパッケージを用いるため、Anaconda からインストールすれば、追加パッケージをインストールする手間が減ります。</p>
+<h2 id="python-の起動">Python の起動</h2>
+<p>Python をインストールしたら、Python を起動しましょう。 コマンドプロンプト( Windows ) / ターミナル( Mac
+)を立ち上げ、 <code>python</code> と打ってみましょう。
+次のような結果が表示されるはずです。</p>
+<pre><code class="lang-bash">Python 3.7.4 (default, Aug  9 2019, 18:34:13) [MSC v.1915 64 bit (AMD64)] :: Anaconda, Inc. on win32
+Type <span class="hljs-string">&quot;help&quot;</span>, <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.
+&gt;&gt;&gt;
+</code></pre>
+<p>立ち上がらない場合、パスの設定ができていないと思われます。</p>
+<p>システムのプロパティ　→　システム情報　→　設定の変更　→　詳細設定　→　環境変数　→　システムの環境変数の
+Path　→　新規　をクリックします。
+以下の文字列をそれぞれ追加します。</p>
+<pre><code class="lang-sh">C:\Users\&lt;ユーザー名&gt;\Anaconda3
+C:\Users\&lt;ユーザー名&gt;\Anaconda3\Scripts
+C:\Users\&lt;ユーザー名&gt;\Anaconda3\Library\bin
+</code></pre>
+<p><code>&lt;ユーザー名&gt;</code> は、自分のユーザー名（例：takam）に置き換えてください。
+Windows 10 以前の場合、Path はセミコロン <code>;</code>
+で区切ります。</p>
+<p>Python を終了する場合は、 <code>quit()</code> と打ちます。</p>
+<h2 id="パッケージのインストール">パッケージのインストール</h2>
+<p>Python では、様々な人たちが Python に便利なパッケージ( R でいう library, Stata でいう ado ファイル )を開発しています。
+このパッケージをインストールするのに便利なコマンド <code>pip</code> が用意されています。
+Web スクレイピングに便利なパッケージである、<a href="http://docs.python-requests.org/en/master/#" target="_blank">requests</a> をインストールしてみましょう。
+コマンドプロンプトに次のコマンドを打ちます。</p>
+<pre><code class="lang-sh">pip install requests
+</code></pre>
+<p>また、Anaconda から Python をインストールした場合には、 <code>conda</code> が用意されています。
+<code>conda</code>
+を用いてパッケージをインストールする場合は、次のようになります。</p>
+<pre><code class="lang-sh">conda install requests
+</code></pre>
+<p><code>pip, conda</code> を使う場合、Python を一旦閉じるか、別のコマンドプロンプトから行ってください。 また、 <code>conda</code>
+を使える場合は、まずこちらを使った方がよいでしょう。</p>
+<h2 id="ipython">IPython</h2>
+<p>データの整理、分析は多くの場合、試行錯誤の連続です。 このようなデータ分析の過程をスムーズに進めるために、Python
+をよりデータ分析に使いやすくした IPython というものが開発されています。
+コマンドプロンプトに <code>ipython</code> と打ってみましょう。次のような画面が表示されるはずです。</p>
+<pre><code class="lang-sh">Python 3.6.1 |Anaconda 4.4.0 (64-bit)| (default, May 11 2017, 13:25:24) [MSC v.1900 64 bit (AMD64)]
+Type <span class="hljs-string">&quot;copyright&quot;</span>, <span class="hljs-string">&quot;credits&quot;</span> or <span class="hljs-string">&quot;license&quot;</span> <span class="hljs-keyword">for</span> more information.
+
+IPython 5.3.0 -- An enhanced Interactive Python.
+?         -&gt; Introduction and overview of IPython<span class="hljs-string">&apos;s features.
+%quickref -&gt; Quick reference.
+help      -&gt; Python&apos;</span>s own <span class="hljs-built_in">help</span> system.
+object?   -&gt; Details about <span class="hljs-string">&apos;object&apos;</span>, use <span class="hljs-string">&apos;object??&apos;</span> <span class="hljs-keyword">for</span> extra details.
+
+In [1]:
+</code></pre>
+<h2 id="jupyter-notebook">Jupyter Notebook</h2>
+<p>長いコードを書く場合、コマンドプロンプト上で行うのは面倒でしょう。
+その場合には、Jupyter Notebook は技術計算用ソフトウェア
+<a href="http://www.wolfram.com/mathematica/?source=nav" target="_blank">Mathematica</a>
+ライクな開発環境を提供します。
+Jupyter Notebook の起動は、Jupyter Notebook というアプリを起動するか、コマンドプロンプトに　<code>jupyter notebook</code> と打ちます。</p>
+<p>次のような画面がブラウザに表示されますので、適当なフォルダで New → Python 3 を押すと、Notebook が新規に作られます。</p>
+<p><img src="../images/jupyter_console.png" alt="image"></p>
+<p>Jupyter Notebook は次のようなものです。</p>
+<p><img src="../images/jupyter_notebook.png" alt="image"></p>
+<p>画面一番上の Untitle のところをクリックして、Notebook の名前を付けましょう。
+<code>In[]</code> の中にコードを書いていきます。
+<code>In[]</code> の中をセルと呼びます。
+セルをクリックするか、または <code>Ctrl + Enter</code> を打つと、セル内のコードが実行されます。</p>
+<p>さて、これで準備は整いました！
+次からは Jupyter Notebook を用いて Python について学んでいきましょう。</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="Tutorial.html" class="navigation navigation-next navigation-unique" aria-label="Next page: Tutorial">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Pythonとは？","level":"1.2.1","depth":2,"next":{"title":"Tutorial","level":"1.2.2","depth":2,"path":"python/Tutorial.md","ref":"python/Tutorial.md","articles":[]},"previous":{"title":"Python","level":"1.2","depth":1,"ref":"","articles":[{"title":"Pythonとは？","level":"1.2.1","depth":2,"path":"python/README.md","ref":"python/README.md","articles":[]},{"title":"Tutorial","level":"1.2.2","depth":2,"path":"python/Tutorial.md","ref":"python/Tutorial.md","articles":[]},{"title":"政府統計データ分析","level":"1.2.3","depth":2,"path":"python/MaternalAge.md","ref":"python/MaternalAge.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["flexible-alerts","katex"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"flexible-alerts":{"style":"callout","note":{"label":"Note","icon":"fa fa-info-circle","className":"info"},"tip":{"label":"Tip","icon":"fa fa-lightbulb-o","className":"tip"},"warning":{"label":"Warning","icon":"fa fa-exclamation-triangle","className":"warning"},"danger":{"label":"Attention","icon":"fa fa-ban","className":"danger"}},"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Takahiro Miura","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Impatiece Lab","language":"ja","gitbook":"*"},"file":{"path":"python/README.md","mtime":"2023-02-17T03:18:43.465Z","type":"markdown"},"gitbook":{"version":"4.0.4","time":"2023-02-17T03:18:50.275Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <noscript>
+        <style>
+            .honkit-cloak {
+                display: block !important;
+            }
+        </style>
+    </noscript>
+    <script>
+        // Restore sidebar state as critical path for prevent layout shift
+        function __init__getSidebarState(defaultValue){
+            var baseKey = "";
+            var key = baseKey + ":sidebar";
+            try {
+                var value = localStorage[key];
+                if (value === undefined) {
+                    return defaultValue;
+                }
+                var parsed = JSON.parse(value);
+                return parsed == null ? defaultValue : parsed;
+            } catch (e) {
+                return defaultValue;
+            }
+        }
+        function __init__restoreLastSidebarState() {
+            var isMobile = window.matchMedia("(max-width: 600px)").matches;
+            if (isMobile) {
+                // Init last state if not mobile
+                return;
+            }
+            var sidebarState = __init__getSidebarState(true);
+            var book = document.querySelector(".book");
+            // Show sidebar if it enabled
+            if (sidebarState && book) {
+                book.classList.add("without-animation", "with-summary");
+            }
+        }
+
+        try {
+            __init__restoreLastSidebarState();
+        } finally {
+            var book = document.querySelector(".book");
+            book.classList.remove("honkit-cloak");
+        }
+    </script>
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-flexible-alerts/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
